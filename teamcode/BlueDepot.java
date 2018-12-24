@@ -97,7 +97,7 @@ public class BlueDepot extends LinearOpMode{
         telemetry.update();
 
         waitForStart();
-        pulleyDrive(.6,-83,30);
+        //pulleyDrive(.6,-87,30);
         strafeDrive(0.5,-3,3,30);
 
         String location = getMineralPos();
@@ -116,7 +116,7 @@ public class BlueDepot extends LinearOpMode{
             encoderDrive(.6,-23,-23,30);// go back
             encoderDrive(.5,-13,13,30); // turn to crater
             encoderDrive(.8,31,31,30);//drive to crater
-            encoderDrive(.5,-4,4,30);// turn to crater
+            encoderDrive(.5,-6,6,30);// turn to crater
             encoderDrive(.8,12,12,30); //hit crater
 
         } else if(location.equals("left")) {
@@ -125,13 +125,13 @@ public class BlueDepot extends LinearOpMode{
             encoderDrive(.7,20,20,30); // hit to mineral
             encoderDrive(.7,-17,-17,30); // going back
             encoderDrive(.5,-7,7,30);// turn left to crater
-            encoderDrive(.7,24,24,30); // drive forward
-            encoderDrive(.5,22,-22,30); // turn to depot
-            strafeDrive(.5,-7,7,30);
+            encoderDrive(.7,26,26,30); // drive forward
+            encoderDrive(.5,21,-21,30); // turn to depot
+            strafeDrive(.5,-5,5,30);
             encoderDrive(.7,34,34,30); // drive to depot
             MARKER.setPosition(1);// marker drop
             sleep(1200); //wait
-            encoderDrive(1,-50,-50,30); // driving back into crater
+            encoderDrive(1,-48,-48,30); // driving back into crater
 
 
 
@@ -144,13 +144,14 @@ public class BlueDepot extends LinearOpMode{
             encoderDrive(.8,21,21,30); // hit mineral
             encoderDrive(.8,-14,-14,30); //moving backward
             encoderDrive(.5,7,-7,30); // turn
-            encoderDrive(.7,-30,-30,30); // drive forward
-            encoderDrive(.5,-9,9,30); // turn to depot
+            encoderDrive(.7,-35,-35,30); // drive forward
+            encoderDrive(.5,-7.5,7.5,30); // turn to depot
             strafeDrive(.5,-5,5,30);//Strafe to wall
             encoderDrive(.7,34,34,30); // drive to depot
             MARKER.setPosition(1);// marker drop
             sleep(1200); //wait
-            encoderDrive(1,-51,-51,30); // driving back into crater */
+            encoderDrive(1,-46,-46,30); // driving back into crater
+
 
 
 

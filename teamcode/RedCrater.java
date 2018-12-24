@@ -133,13 +133,14 @@ public class RedCrater extends LinearOpMode{
 
 
 // Positive goes down
-        pulleyDrive(.6,-83,30);
-        strafeDrive(0.5,-4,4,30);
-       String location = getMineralPos();
+        pulleyDrive(.6,-87,30);
+        strafeDrive(0.5,-3,3,30);
+        String location = getMineralPos();
         telemetry.addData("MineralPosition",location);
         telemetry.addData("MineralPosition", "Running to %s : %s", location, location);
         telemetry.update();
         detector.disable();
+        // String location = "right";
         if ( location.equals("middle")) {
             encoderDrive(.7,8,8,30);
             strafeDrive(.3,4,-4,30);
@@ -147,12 +148,12 @@ public class RedCrater extends LinearOpMode{
             encoderDrive(.6,-10,-10,30);
             encoderDrive(.6,-20,20,30);
             encoderDrive(.7,46,46,30);
-            encoderDrive(.6,-9,9,30);
+            encoderDrive(.6,-11,11,30);
             strafeDrive(.6,6,-6,30);
             encoderDrive(.8,44,44,30); // going to depot
             MARKER.setPosition(1);
             sleep(1500);
-            encoderDrive(1,-67,-67,30);
+            encoderDrive(1,-68,-68,30);
         } else if(location.equals("right")) {
             encoderDrive(.3,3.5,3.5,30);  //move foreward
             encoderDrive(.6,10,-10,30); //Turn Right
@@ -160,7 +161,7 @@ public class RedCrater extends LinearOpMode{
             encoderDrive(.7,-14.5,-14.5,30); // DRive backwards
             encoderDrive(.6,-31,31,30); // Turn Left
             encoderDrive(.8,60,60,30); // Move foreward to wall
-            encoderDrive(.5,-7,7,30); //Turn Left
+            encoderDrive(.5,-11,11,30); //Turn Left
             strafeDrive(.5,2,-2,30);
             encoderDrive(.7,37,37,30);
             MARKER.setPosition(1);
@@ -172,16 +173,16 @@ public class RedCrater extends LinearOpMode{
         } else { //moving to left
             encoderDrive(.8,10,10,30); //move forward
             encoderDrive(.6,-8,8,30); //turn to mineral
-            encoderDrive(.6,18,18,30);// hitting mineral
+            encoderDrive(.6,20,20,30);// hitting mineral
             encoderDrive(.6,-11,-11,30); //Drive back
             encoderDrive(.5,-14,14,30); // turn left
-            encoderDrive(.7,43,43,30); // drive to wall
-            encoderDrive(.5,-6,6,30);//turn to depot
+            encoderDrive(.7,46,46,30); // drive to wall
+            encoderDrive(.5,-9,9,30);//turn to depot
             strafeDrive(.5,6,-6,30); // align to wall by strafe
             encoderDrive(.8,40,40,30); // going to depot
             MARKER.setPosition(1); //marker
             sleep(1200); //wait
-            encoderDrive(1,-69,-69,30); // parking */
+            encoderDrive(1,-72,-72,30); // parking */
 
         }
         sleep(10000);
