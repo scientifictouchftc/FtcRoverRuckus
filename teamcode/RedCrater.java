@@ -102,7 +102,7 @@ public class RedCrater extends LinearOpMode{
 
         detector.enable();
 
-        telemetry.addData("Status" , "Running RedDepot"); // Gold X pos.
+        telemetry.addData("Status" , "Running RedCrater"); // Gold X pos.
 
         telemetry.update();
 
@@ -111,25 +111,8 @@ public class RedCrater extends LinearOpMode{
 
         waitForStart();
 
-        // put (-x) for inches
-        // 9.5 of negative
-        //encoderDrive(.3,6,6,10); Move robot forward
-        //encoderDrive(.3,-6,-6,10); Move robot backward.
-        //encoderDrive(.3,9.5,-9.5,10);  Turn Right 90 Degree       9.5 is the real number for the
-        //encoderDrive(.3,-9.5,9.5,10);  Turn Left 90 Degree        turning of 90 Degree.
 
 
-// Positive goes down
-
-        telemetry.addData("Test", "test");
-        telemetry.update();
-
-        // put (-x) for inches
-        // 9.5 of negative
-        //encoderDrive(.3,6,6,10); Move robot forward
-        //encoderDrive(.3,-6,-6,10); Move robot backward.
-        //encoderDrive(.3,9.5,-9.5,10);  Turn Right 90 Degree       9.5 is the real number for the
-        //encoderDrive(.3,-9.5,9.5,10);  Turn Left 90 Degree        turning of 90 Degree.
 
 
 // Positive goes down
@@ -140,7 +123,7 @@ public class RedCrater extends LinearOpMode{
         telemetry.addData("MineralPosition", "Running to %s : %s", location, location);
         telemetry.update();
         detector.disable();
-        // String location = "right";
+       // String location = "left";
         if ( location.equals("middle")) {
             encoderDrive(.7,8,8,30);
             strafeDrive(.3,4,-4,30);
@@ -153,7 +136,7 @@ public class RedCrater extends LinearOpMode{
             encoderDrive(.8,44,44,30); // going to depot
             MARKER.setPosition(1);
             sleep(1500);
-            encoderDrive(1,-68,-68,30);
+            encoderDrive(1,-70,-70,30);
         } else if(location.equals("right")) {
             encoderDrive(.3,3.5,3.5,30);  //move foreward
             encoderDrive(.6,10,-10,30); //Turn Right
@@ -166,7 +149,7 @@ public class RedCrater extends LinearOpMode{
             encoderDrive(.7,37,37,30);
             MARKER.setPosition(1);
             sleep(1500);
-            encoderDrive(1,-68,-68,30);
+            encoderDrive(1,-70,-70,30);
 
 
 
@@ -473,7 +456,7 @@ public class RedCrater extends LinearOpMode{
         }
     }
 
-    public String getMineralPos() {
+   public String getMineralPos() {
         String location = "";
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {

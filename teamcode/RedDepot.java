@@ -27,11 +27,18 @@ public class RedDepot extends LinearOpMode{
 
     private ElapsedTime runtime = new ElapsedTime();
 
-    static final double     TICKS_PER_REV    = 1680 ;    // eg: TETRIX Motor Encoder
+    static final double     TICKS_PER_REV    = 1120 ;    // eg: TETRIX Motor Encoder
     static final double     DRIVE_GEAR_REDUCTION    = 0.9 ;     // This is < 1.0 if geared UP
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (TICKS_PER_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
+
+
+    static final double     TICKS_PER_REV_TORQUE60    = 1680 ;    // eg: TETRIX Motor Encoder
+    static final double     DRIVE_GEAR_REDUCTION60    = 0.9 ;     // This is < 1.0 if geared UP
+    static final double     WHEEL_DIAMETER_INCHES60   = 4.0 ;     // For figuring circumference
+    static final double     COUNTS_PER_INCH60         = (TICKS_PER_REV_TORQUE60 * DRIVE_GEAR_REDUCTION60) /
+            (WHEEL_DIAMETER_INCHES60 * 3.1415);
 
     static final double     DRIVE_SPEED             = 0.6;
     static final double     TURN_SPEED              = 0.5;
@@ -92,12 +99,12 @@ public class RedDepot extends LinearOpMode{
 
         detector.enable();
 
-        telemetry.addData("Status" , "Running BlueDepot"); // Gold X pos.
+        telemetry.addData("Status" , "Running RedDepot"); // Gold X pos.
 
         telemetry.update();
 
         waitForStart();
-        //pulleyDrive(.6,-87,30);
+        pulleyDrive(.6,-87,30);
         strafeDrive(0.5,-3,3,30);
 
         String location = getMineralPos();
@@ -105,33 +112,33 @@ public class RedDepot extends LinearOpMode{
         telemetry.addData("MineralPosition", "Running to %s : %s", location, location);
         telemetry.update();
         detector.disable();
-
+        // String location = "middle";
 
         if ( location.equals("middle")) {
-            encoderDrive(.6,10,10,30);// move forward
+            encoderDrive(.6,15,15,30);// move forward
             strafeDrive(.5,5,-5,30);//strafe to mineral
-            encoderDrive(.7,26,26,30);//hit mineral
+            encoderDrive(.7,38,38,30);//hit mineral
             MARKER.setPosition(1); // drop marker
             sleep(1200);
-            encoderDrive(.6,-23,-23,30);// go back
-            encoderDrive(.5,-13,13,30); // turn to crater
-            encoderDrive(.8,31,31,30);//drive to crater
-            encoderDrive(.5,-6,6,30);// turn to crater
-            encoderDrive(.8,12,12,30); //hit crater
+            encoderDrive(.6,-35,-35,30);// go back
+            encoderDrive(.5,-21,21,30); // turn to crater
+            encoderDrive(.8,52,52,30);//drive to crater
+            encoderDrive(.5,-4,4,30);// turn to crater
+            encoderDrive(.8,16,16,30); //hit crater
 
         } else if(location.equals("left")) {
-            encoderDrive(.7,9,9,30); // going forward
-            encoderDrive(.5,-7,7,30); // turns to mineral
-            encoderDrive(.7,20,20,30); // hit to mineral
-            encoderDrive(.7,-17,-17,30); // going back
-            encoderDrive(.5,-7,7,30);// turn left to crater
-            encoderDrive(.7,26,26,30); // drive forward
-            encoderDrive(.5,21,-21,30); // turn to depot
+            encoderDrive(.7,13,13,30); // going forward
+            encoderDrive(.5,-10,10,30); // turns to mineral
+            encoderDrive(.7,30,30,30); // hit to mineral
+            encoderDrive(.7,-27,-27,30); // going back
+            encoderDrive(.5,-10,10,30);// turn left to crater
+            encoderDrive(.7,42,42,30); // drive forward
+            encoderDrive(.5,31.5,-31.5,30); // turn to depot
             strafeDrive(.5,-5,5,30);
-            encoderDrive(.7,34,34,30); // drive to depot
+            encoderDrive(.7,50,50,30); // drive to depot
             MARKER.setPosition(1);// marker drop
             sleep(1200); //wait
-            encoderDrive(1,-48,-48,30); // driving back into crater
+            encoderDrive(1,-62,-62,30); // driving back into crater
 
 
 
@@ -139,18 +146,18 @@ public class RedDepot extends LinearOpMode{
 
 
         } else { //moving to right
-            encoderDrive(.6,6,6,30); // move forward
-            encoderDrive(.5,7.5,-7.5,30); // turn to mineral
-            encoderDrive(.8,21,21,30); // hit mineral
-            encoderDrive(.8,-14,-14,30); //moving backward
-            encoderDrive(.5,7,-7,30); // turn
-            encoderDrive(.7,-35,-35,30); // drive forward
-            encoderDrive(.5,-7.5,7.5,30); // turn to depot
+            encoderDrive(.6,8,8,30); // move forward
+            encoderDrive(.5,10,-10,30); // turn to mineral
+            encoderDrive(.8,26,26,30); // hit mineral
+            encoderDrive(.8,-17,-17,30); //moving backward
+            encoderDrive(.5,12,-12,30); // turn
+            encoderDrive(.7,-53,-53,30); // drive forward
+            encoderDrive(.5,-11,11,30); // turn to depot
             strafeDrive(.5,-5,5,30);//Strafe to wall
-            encoderDrive(.7,34,34,30); // drive to depot
+            encoderDrive(.7,51,51,30); // drive to depot
             MARKER.setPosition(1);// marker drop
             sleep(1200); //wait
-            encoderDrive(1,-46,-46,30); // driving back into crater
+            encoderDrive(1,-70,-70,30); // driving back into crater */
 
 
 
@@ -297,7 +304,7 @@ public class RedDepot extends LinearOpMode{
 
             // Determine new target position, and pass to motor controller
 
-            PulleyDistance = PULLEY.getCurrentPosition() + (int)(Inches* COUNTS_PER_INCH);
+            PulleyDistance = PULLEY.getCurrentPosition() + (int)(Inches* COUNTS_PER_INCH60);
 
 
 

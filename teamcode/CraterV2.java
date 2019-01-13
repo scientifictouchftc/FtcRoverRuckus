@@ -154,7 +154,7 @@ public class CraterV2 extends LinearOpMode{
             encoderDrive(.6,-31,31,30); // Turn Left
             encoderDrive(.8,42,42,30); // Move foreward to wall
             encoderDrive(.5,25,-25,30);
-            encoderDrive(.5,27,27,30);
+            encoderDrive(.5,24,24,30);
 
 
         } else { //moving to left
